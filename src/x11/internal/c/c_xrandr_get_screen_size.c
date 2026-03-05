@@ -2,7 +2,6 @@
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
 #include <stdio.h>
-#include <c_xrandr_get_screen_size.h>
 
 // 返回 1 (true) 表示成功，0 (false) 表示失败
 int get_monitor_geometry_from_window(Display *display, Window window, int *x, int *y, int *width, int *height) {

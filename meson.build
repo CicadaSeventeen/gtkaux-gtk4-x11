@@ -4,7 +4,7 @@ project(
 	version: '0.1.0'
 )
 
-gtk4_dep = dependency('gtk4')
+gtk4_dep_list = [dependency('gtk4'),dependency('gtk4-x11')]
 gtk3_dep_list = [dependency('gtk+-3.0'),dependency('gdk-3.0'),dependency('gdk-x11-3.0')]
 x11_dep  = dependency('x11')
 
@@ -61,9 +61,6 @@ vala_sources_gtk3 = files(
 	'src/gtk/api/gtk3/gtk_api_extra.vala',
 )
 
-vapi_sources_base = files(
-	'src/x11/internal/c/c_xrandr_get_screen_size.vapi',
-)
 
 vapi_sources_gtk4 = files(
 	'src/patch/patch_gtk4-x11.vapi'
@@ -71,6 +68,10 @@ vapi_sources_gtk4 = files(
 
 c_sources = files(
 	'src/x11/internal/c/c_xrandr_get_screen_size.c'
+)
+
+c_vala_sources = files(
+	'src/x11/internal/c/c_xrandr_get_screen_size.vala'
 )
 
 xrandr_include = include_directories('src/x11/internal/c')
@@ -81,10 +82,9 @@ if gtk_version == '4'
 	gir_name = 'Gtk4auxX11-1.0.gir'
 	vapi_name = 'gtk4aux-x11-1.0.vapi'
 	header_name = 'gtk4aux-x11.h'
-	dep = [gtk4_dep,x11_dep]
-	vala_args = vala_args_gtk4
-	vala_sources = vala_sources_base + vala_sources_gtk4
-	vapi_sources = vapi_sources_base + vapi_sources_gtk4
+	dep = gtk4_dep_list + [x11_dep]
+	vala_args = vala_args_gtk4 + [ '--library=' + name ]
+	vala_sources = vala_sources_base + vala_sources_gtk4 + c_vala_sources
 	version = '0.1.0'
 elif gtk_version == '3'
 	name = 'gtk3aux-x11'
@@ -92,23 +92,29 @@ elif gtk_version == '3'
 	vapi_name = 'gtk3aux-x11-1.0.vapi'
 	header_name = 'gtk3aux-x11.h'
 	dep = gtk3_dep_list + [x11_dep]
-	vala_args = vala_args_gtk3
-	vala_sources = vala_sources_base + vala_sources_gtk3
-	vapi_sources = vapi_sources_base
+	vala_args = vala_args_gtk3  + [ '--library=' + name ]
+	vala_sources = vala_sources_base + vala_sources_gtk3 + c_vala_sources
 	version = '0.1.0'
 endif
+sources = vala_sources + c_sources
 
+pkg = import('pkgconfig')
 lib = library(
 	name,
-	vala_sources + vapi_sources + c_sources,
+	sources,
 	vala_args: vala_args,
-	vala_gir: gir_name,
-	vala_vapi: vapi_name,
-	vala_header: header_name,
 	link_args: link_args,
-	include_directories: xrandr_include,
 	dependencies: dep,
 	install: true,
+	install_dir: [true, true, true],
 	version : version
 )
+pkg.generate(
+	lib,
+	description: 'GTK-Auxiliary X11 library',
+	filebase: name,
+	subdirs: name
+)
+
+
 
