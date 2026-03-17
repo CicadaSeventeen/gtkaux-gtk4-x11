@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_x11_", lower_case_cprefix = "gtkaux_x11_")]
+[CCode (cprefix = "GtkAuxX11", lower_case_cprefix = "gtkaux_x11_")]
 	namespace X11Lib {
 		// override
 		// 需要在realize的地方设置

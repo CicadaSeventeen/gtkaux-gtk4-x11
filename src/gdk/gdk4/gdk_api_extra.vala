@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_gdk_", lower_case_cprefix = "gtkaux_gdk_")]
+	[CCode (cprefix = "GtkAuxGdk", lower_case_cprefix = "gtkaux_gdk_")]
 	namespace GdkLib {
 		public void set_modal(Gdk.Surface surface,bool enable){
 			if (surface is Gdk.Toplevel){
@@ -12,7 +12,7 @@ namespace GtkAux {
 			}
 		}
 	}
-	[CCode (cprefix = "gtkaux_gdk_x11_", lower_case_cprefix = "gtkaux_gdk_x11_")]
+	[CCode (cprefix = "GtkAuxGdkX11", lower_case_cprefix = "gtkaux_gdk_x11_")]
 	namespace GdkX11Lib {
 		public bool is_keep_above_supported(Gdk.Surface surface){
 			return is_window_state_hint_supported(surface,X11Lib.WindowStateHint.ABOVE);

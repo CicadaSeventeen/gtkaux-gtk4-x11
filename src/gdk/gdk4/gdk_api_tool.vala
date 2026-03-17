@@ -1,12 +1,12 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_gdk_", lower_case_cprefix = "gtkaux_gdk_")]
+	[CCode (cprefix = "GtkAuxGdk", lower_case_cprefix = "gtkaux_gdk_")]
 	namespace GdkLib {
 		public Gdk.Display get_display(Gdk.Surface surface){
 			return get_display(surface);
 		}
 	}
-	[CCode (cprefix = "gtkaux_gdk_x11_", lower_case_cprefix = "gtkaux_gdk_x11_")]
+	[CCode (cprefix = "GtkAuxGdkX11", lower_case_cprefix = "gtkaux_gdk_x11_")]
 	namespace GdkX11Lib {
 		public unowned X.Display? get_xdisplay(Gdk.Surface surface){
 			return X11Lib.get_xdisplay(surface);

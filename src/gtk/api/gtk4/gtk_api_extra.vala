@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_gtk_", lower_case_cprefix = "gtkaux_gtk_")]
+[CCode (cprefix = "GtkAuxGtk", lower_case_cprefix = "gtkaux_gtk_")]
 	namespace GtkLib {
 		// modal的set和get官方都有
 		public void set_modal(Gtk.Window window,bool enable){window.set_modal(enable);}
@@ -33,7 +33,7 @@ namespace GtkAux {
 	}
 
 
-	[CCode (cprefix = "gtkaux_gtk_x11_", lower_case_cprefix = "gtkaux_gtk_x11_")]
+[CCode (cprefix = "GtkAuxGtkX11", lower_case_cprefix = "gtkaux_gtk_x11_")]
 	namespace GtkX11Lib {
 		public bool get_keep_above(Gtk.Window window){
 			return get_window_state_hint(window,X11Lib.WindowStateHint.ABOVE);

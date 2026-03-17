@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_gdk_x11_", lower_case_cprefix = "gtkaux_gdk_x11_")]
+	[CCode (cprefix = "GtkAuxGdkX11", lower_case_cprefix = "gtkaux_gdk_x11_")]
 namespace GdkX11Lib {
 		public bool get_override_redirect(Gdk.Surface surface){
 			return X11Lib.get_override_redirect(surface);
@@ -22,37 +22,6 @@ namespace GdkX11Lib {
 		}
 		public void set_desktop_number(Gdk.Surface surface,int desktop_number){
 			X11Lib.set_desktop_number(surface,desktop_number);
-		}
-
-		public void get_position(Gdk.Surface surface,out int x,out int y){
-			X11Lib.get_position(surface,out x,out y);
-		}
-		public void set_position(Gdk.Surface surface,int x,int y){
-			X11Lib.move(surface,x,y);
-		}
-
-		public void get_size(Gdk.Surface surface,out int width,out int height){
-			X11Lib.get_size(surface,out width,out height);
-		}
-		public void set_size(Gdk.Surface surface,int width,int height){
-			X11Lib.resize(surface,width,height);
-		}
-
-		public void get_geometry(Gdk.Surface surface,out int x,out int y,out int width,out int height){
-			X11Lib.get_geometry(surface,out x,out y,out width,out height);
-		}
-		public void set_geometry(Gdk.Surface surface,int x,int y,int width,int height){
-			X11Lib.move_resize(surface,x,y,width,height);
-		}
-
-		public void move(Gdk.Surface surface,int x,int y){
-			set_position(surface,x,y);
-		}
-		public void resize(Gdk.Surface surface,int width,int height){
-			set_size(surface,width,height);
-		}
-		public void move_resize(Gdk.Surface surface,int x,int y,int width,int height){
-			set_geometry(surface,x,y,width,height);
 		}
 	}
 }

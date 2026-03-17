@@ -1,8 +1,8 @@
 namespace GtkAux {
 	#if API_COMPATIBLE
-	[CCode (cprefix = "gdk_", lower_case_cprefix = "gdk_")]
+[CCode (cprefix = "Gdk", lower_case_cprefix = "gdk_")]
 	#else
-	[CCode (cprefix = "gdklegacy_", lower_case_cprefix = "gdklegacy_")]
+[CCode (cprefix = "GdkLegacy", lower_case_cprefix = "gdklegacy_")]
 	#endif
 	namespace GdkLegacy {
 	#if GTK3

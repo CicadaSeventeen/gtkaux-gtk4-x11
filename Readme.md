@@ -15,17 +15,19 @@ This project is part of `GtkAux` which aims to help to program Gtk easier.
 
 ### For Gtk4 Users
 Restores window management capabilities that are natively missing in Gtk4:
-* **Move & Resize & Get Geometry:** Support for manual `move` and `resize` operations, as well as retrieving the current window position and dimensions.
+* **Geometry:** Support setting window geometry using integer values ​​or percentages.
+    * **Move & Resize:** Support for manual `move` and `resize` operations, as well as retrieving the current window position and dimensions.
+    * **Strut Implementation:** Define reserved screen space (e.g., for panels or docks) so other windows don't overlap them.
 * **EWMH Hints:** Set Window Type Hints and Window State Hints, such as:
     * **DESKTOP:** Make window work as as desktop.
     * **Keep Above:** Keep the window on top of others.
     * **Skip Taskbar:** Hide the window from the taskbar/dock.
 * **Stick Mode:** Make the window visible across all virtual desktops/workspaces.
 * **Override Redirect:** Set the window to bypass window manager control (useful for custom menus/tooltips).
-* **Strut Implementation:** Define reserved screen space (e.g., for panels or docks) so other windows don't overlap them.
 
 ### For Gtk3 Users
 While Gtk3 natively supports most of these APIs, this library remains useful for:
+* **Geometry:** Support setting window geometry information using percentages.
 * **Strut Implementation:** Official Gtk3 does not provide a direct API for Strut. This library makes programming Dock/Panel applications significantly easier in Gtk3.
 
 ---
@@ -37,7 +39,9 @@ The APIs are categorized by their abstraction level. Please refer to the header 
 | :--- | :--- |
 | `gtkaux_x11_` | **Low-level functions.** Supports `GtkWindow` and `GdkSurface` (Gtk4) or `GdkWindow` (Gtk3). Improper use may result in a **segfault**. |
 | `gtkaux_gdk_x11_` | Simple wrappers around the `gtkaux_x11_` functions with no structural changes. |
-| `gtkaux_gtk_x11_` | **Flexible wrappers.** These can be called before a window is `realized`; they use GLib signals to apply settings once the window is ready. |
+| `gtkaux_gtk_x11_` | **Flexible wrappers.** These can be called before a window is *realized*; they use GLib signals to apply settings once the window is ready. |
 | `GTKAUX_X11_` | **Macros & Enums.** Used for magic numbers and EWMH-related function parameters. |
 | `gtklegacy_` / `gdklegacy_` | **Migration wrappers.** These provide interfaces consistent with native Gtk3 APIs (`gtk_` and `gdk_`) to simplify code porting. |
 | Others | Miscellaneous utility functions marked as external for niche use cases. |
+
+* Setting geometry with percentages is kind of complex. Please see `GeometryTarget` gobject class for details.

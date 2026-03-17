@@ -1,7 +1,7 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
 	namespace Internal {
-		[CCode (cprefix = "gtkaux_internal_x11_", lower_case_cprefix = "gtkaux_internal_x11_")]
+[CCode (cprefix = "GtkAuxInternalX11", lower_case_cprefix = "gtkaux_internal_x11_")]
 		namespace X11Lib {
 			namespace XDisplay {
 				namespace OverrideRedirect {

@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux{
-	internal static Gdk.Display? get_display(GLib.Object? win_item){
+	public Gdk.Display? get_display(GLib.Object? win_item){
 		if(win_item == null){return null;}
 		#if GTK3
 		else if(win_item is Gdk.Window){return ((Gdk.Window)win_item).get_display();}

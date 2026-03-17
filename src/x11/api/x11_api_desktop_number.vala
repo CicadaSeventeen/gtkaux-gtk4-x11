@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_x11_", lower_case_cprefix = "gtkaux_x11_")]
+[CCode (cprefix = "GtkAuxX11", lower_case_cprefix = "gtkaux_x11_")]
 	namespace X11Lib {
 		public int? get_desktop_number(GLib.Object window) {
 			if (is_hint_supported_by_string(window,"_NET_WM_DESKTOP")){

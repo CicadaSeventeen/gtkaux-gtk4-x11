@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux{
-	[CCode (cprefix = "gtkaux_x11_", lower_case_cprefix = "gtkaux_x11_")]
+[CCode (cprefix = "GtkAuxX11", lower_case_cprefix = "gtkaux_x11_")]
 	namespace X11Lib {
 		private const string window_type_hint_type_str = "_NET_WM_WINDOW_TYPE";
 		private const string window_state_hint_type_str = "_NET_WM_STATE";

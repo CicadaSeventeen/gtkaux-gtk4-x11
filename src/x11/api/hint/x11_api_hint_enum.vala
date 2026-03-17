@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_x11_", lower_case_cprefix = "gtkaux_x11_")]
+[CCode (cprefix = "GtkAuxX11", lower_case_cprefix = "gtkaux_x11_")]
 	namespace X11Lib {
 		public enum WindowTypeHint {
 			NONE,
@@ -218,11 +218,11 @@ namespace GtkAux {
 				return (int)parse(window_state_str);
 			}
 
-			public static int length(){
+			internal static int length(){
 				return (int)((EnumClass)typeof(WindowStateHint).class_ref()).n_values;
 			}
 
-			public static WindowStateHint[] array() {
+			internal static WindowStateHint[] array() {
 				var tmp = (EnumClass)typeof(WindowStateHint).class_ref();
 				WindowStateHint[] result = new WindowStateHint[tmp.n_values];
 				for (int i = 0; i < tmp.n_values; i++) {

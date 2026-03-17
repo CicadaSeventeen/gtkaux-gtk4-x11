@@ -1,8 +1,8 @@
 namespace GtkAux {
 	#if API_COMPATIBLE
-	[CCode (cprefix = "gtk_", lower_case_cprefix = "gtk_")]
+[CCode (cprefix = "Gtk", lower_case_cprefix = "gtk_")]
 	#else
-	[CCode (cprefix = "gtklegacy_", lower_case_cprefix = "gtklegacy_")]
+[CCode (cprefix = "GtkLegacy", lower_case_cprefix = "gtklegacy_")]
 	#endif
 	namespace GtkLegacy {
 		#if GTK3
@@ -42,23 +42,6 @@ namespace GtkAux {
 		}
 		public bool get_skip_pager_hint(Gtk.Window self,bool skip_pager){
 			return GtkX11Lib.get_window_state_hint(self,X11Lib.WindowStateHint.SKIP_TASKBAR);
-		}
-
-		public int get_width(Gtk.Window self){
-			int width,height;
-			GtkX11Lib.get_size(self,out width,out height);
-			return width;
-		}
-		public int get_height(Gtk.Window self){
-			int width,height;
-			GtkX11Lib.get_size(self,out width,out height);
-			return height;
-		}
-		public void get_position(Gtk.Window self,out int x,out int y){
-			X11Lib.get_position(self,out x,out y);
-		}
-		public void get_geometry(Gtk.Window self,out int x,out int y,out int width,out int height){
-			GtkX11Lib.get_geometry(self,out x,out y,out width,out height);
 		}
 
 		public void move(Gtk.Window self,int x,int y){

@@ -1,6 +1,6 @@
-[CCode (cprefix = "gtkaux_", lower_case_cprefix = "gtkaux_")]
+[CCode (cprefix = "GtkAux", lower_case_cprefix = "gtkaux_")]
 namespace GtkAux {
-	[CCode (cprefix = "gtkaux_x11_", lower_case_cprefix = "gtkaux_x11_")]
+[CCode (cprefix = "GtkAuxX11", lower_case_cprefix = "gtkaux_x11_")]
 	namespace X11Lib {
 	//重要的基础工具
 		public unowned X.Display? get_xdisplay(GLib.Object? window){
