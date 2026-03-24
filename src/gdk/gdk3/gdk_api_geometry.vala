@@ -32,6 +32,38 @@ namespace GdkX11Lib {
 		public void move_resize(Gdk.Window window,int x,int y,int width,int height){
 			X11Lib.move_resize(window,x,y,width,height);
 		}
+
+		public void set_position_advanced(Gdk.Window window,
+			GLib.Value? x,GLib.Value? y,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left,
+			int align_horz,int align_vert
+		){
+			X11Lib.set_position_advanced(window,x,y,margin_top,margin_right,margin_bottom,margin_left,align_horz,align_vert);
+		}
+
+		public void set_size_advanced(Gdk.Window window,
+			GLib.Value? width,GLib.Value? height,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left,
+			int align_horz,int align_vert
+		){
+			X11Lib.set_size_advanced(window,width,height,margin_top,margin_right,margin_bottom,margin_left,align_horz,align_vert);
+		}
+
+		public void set_geometry_advanced(Gdk.Window window,
+			GLib.Value? x,GLib.Value? y,GLib.Value? width,GLib.Value? height,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left,
+			int align_horz,int align_vert
+		){
+			X11Lib.set_geometry_advanced(window,x,y,width,height,margin_top,margin_right,margin_bottom,margin_left,align_horz,align_vert);
+		}
+
+		public void set_screen_margin_advanced(Gdk.Window window,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left
+		){
+			X11Lib.set_screen_margin_advanced(window,margin_top,margin_right,margin_bottom,margin_left);
+		}
+
+		/*
 		public class GeometryTarget: X11Lib.GeometryTarget{
 			public GeometryTarget(Gdk.Window window)
 			{
@@ -80,6 +112,6 @@ namespace GdkX11Lib {
 		}
 		public double get_vert_margin_percent_from_int(Gdk.Window window,int margin){
 			return X11Lib.get_horz_margin_percent_from_int(window,margin);
-		}
+		}*/
 	}
 }

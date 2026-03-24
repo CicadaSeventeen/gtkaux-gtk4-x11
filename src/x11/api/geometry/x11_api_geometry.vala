@@ -87,6 +87,7 @@ namespace GtkAux {
 		public void set_geometry(GLib.Object? window,int x,int y,int width,int height,int align_horz,int align_vert){
 			int x_tmp = modify_horz(x,width,align_horz,false);
 			int y_tmp = modify_vert(y,height,align_vert,false);
+// 			stdout.printf("%d %d %d %d\n",x_tmp,y_tmp,width,height);
 			move_resize(window,x_tmp,y_tmp,width,height);
 		}
 

@@ -64,6 +64,7 @@ namespace GtkAux{
 							break;
 					}
 				}
+
 				internal virtual void smart_exec(){
 					if(this.is_done()){
 						this.func_exec();
