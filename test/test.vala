@@ -41,8 +41,13 @@ public class MyPanel : Gtk.ApplicationWindow {
 			right.set_int(5);
 			//GtkAux.GtkX11Lib.set_window_state_hint(this,GtkAux.X11Lib.WindowStateHint.SKIP_PAGER,true);
 			//GtkAux.GtkX11Lib.set_window_state_hint(this,GtkAux.X11Lib.WindowStateHint.SKIP_TASKBAR,true);
+<<<<<<< HEAD
 			GtkAux.GtkX11Lib.set_position(this,320,200,GtkAux.X11Lib.ALIGN_HORZ_LEFT,GtkAux.X11Lib.ALIGN_VERT_TOP);
 			GtkAux.GtkX11Lib.set_size(this,400,400,GtkAux.X11Lib.ALIGN_HORZ_MID,GtkAux.X11Lib.ALIGN_VERT_MID);
+=======
+			//GtkAux.GtkX11Lib.set_geometry(this,320,200,640,400,GtkAux.X11Lib.ALIGN_HORZ_MID,GtkAux.X11Lib.ALIGN_VERT_MID);
+			GtkAux.GtkX11Lib.set_geometry_advanced(this,x,y,null,null,null,null,null,null,GtkAux.X11Lib.ALIGN_HORZ_MID,GtkAux.X11Lib.ALIGN_VERT_MID);
+>>>>>>> dcba8d42435ddc57f16dc353c6967c1f5dcdc6d4
 			//GtkAux.link.moveTarget_geoRect.init(this,tmp);
 			//GtkAux.link..init(this,true);
 			//print(item.to_string());
