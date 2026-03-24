@@ -44,4 +44,4 @@ The APIs are categorized by their abstraction level. Please refer to the header 
 | `gtklegacy_` / `gdklegacy_` | **Migration wrappers.** These provide interfaces consistent with native Gtk3 APIs (`gtk_` and `gdk_`) to simplify code porting. |
 | Others | Miscellaneous utility functions marked as external for niche use cases. |
 
-* Setting geometry with percentages is kind of complex. Please see `GeometryTarget` gobject class for details.
+* Setting geometry with percentages is kind of complex. We now use `GLib.Value` as API. Please see headers for details.
