@@ -1,7 +1,7 @@
 project(
 	'gtkaux-x11',
 	['vala', 'c'],
-	version: '0.2.0'
+	version: '0.3.1'
 )
 
 gtk4_dep_list = [dependency('gtk4')]
@@ -40,7 +40,6 @@ vala_sources_x11 = files(
 	'src/x11/api/geometry/x11_api_geometry.vala',
 	'src/x11/api/geometry/x11_api_strut.vala',
 	'src/x11/api/geometry/x11_api_geometry_percent.vala',
-	'src/x11/api/geometry/x11_api_geometry_target.vala',
 	'src/x11/internal/xdisplay_display.vala',
 	'src/x11/internal/ewmh/xdisplay_ewmh_atom.vala',
 	'src/x11/internal/ewmh/xdisplay_ewmh_desktop_number.vala',
@@ -100,7 +99,7 @@ xrandr_include = include_directories('src/x11/internal/c')
 gtk_version = get_option('gtk_version')
 if gtk_version == '4'
 	name = 'gtk4aux-x11'
-	version = '0.2.0'
+	version = '0.3.0'
 	gir_name = 'Gtk4AuxX11-' + version + '.gir'
 	typelib_name = 'Gtk4AuxX11-' + version + '.typelib'
 	vapi_name = 'gtk4aux-x11-1.0.vapi'
@@ -110,7 +109,7 @@ if gtk_version == '4'
 	vala_sources = vala_sources_base + vala_sources_x11 + vala_sources_legacy_api + vapi_patches_gtk4 + c_vala_sources + vala_sources_gtk + vala_sources_gtk4 + vala_sources_gdk4
 elif gtk_version == '3'
 	name = 'gtk3aux-x11'
-	version = '0.2.0'
+	version = '0.3.0'
 	gir_name = 'Gtk3AuxX11-' + version + '.gir'
 	typelib_name = 'Gtk3AuxX11-' + version + '.typelib'
 	header_name = 'gtk3aux-x11.h'

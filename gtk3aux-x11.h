@@ -12,8 +12,6 @@
 #include <glib.h>
 #include <stdlib.h>
 #include <string.h>
-#include <float.h>
-#include <math.h>
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
@@ -114,345 +112,6 @@ typedef enum  {
 } GtkAuxX11AlignVertical;
 
 #define GTKAUX_X11_TYPE_ALIGN_VERTICAL (gtkaux_x11_align_vertical_get_type ())
-
-#define GTKAUX_X11_TYPE_TARGET (gtkaux_x11_target_get_type ())
-#define GTKAUX_X11_TARGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_TARGET, GtkAuxX11Target))
-#define GTKAUX_X11_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_TARGET, GtkAuxX11TargetClass))
-#define GTKAUX_X11_IS_TARGET(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_TARGET))
-#define GTKAUX_X11_IS_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_TARGET))
-#define GTKAUX_X11_TARGET_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_TARGET, GtkAuxX11TargetClass))
-
-typedef struct _GtkAuxX11Target GtkAuxX11Target;
-typedef struct _GtkAuxX11TargetClass GtkAuxX11TargetClass;
-typedef struct _GtkAuxX11TargetPrivate GtkAuxX11TargetPrivate;
-
-#define GTKAUX_X11_TYPE_COORD (gtkaux_x11_coord_get_type ())
-#define GTKAUX_X11_COORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_COORD, GtkAuxX11Coord))
-#define GTKAUX_X11_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_COORD, GtkAuxX11CoordClass))
-#define GTKAUX_X11_IS_COORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_COORD))
-#define GTKAUX_X11_IS_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_COORD))
-#define GTKAUX_X11_COORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_COORD, GtkAuxX11CoordClass))
-
-typedef struct _GtkAuxX11Coord GtkAuxX11Coord;
-typedef struct _GtkAuxX11CoordClass GtkAuxX11CoordClass;
-typedef struct _GtkAuxX11CoordPrivate GtkAuxX11CoordPrivate;
-
-#define GTKAUX_X11_TYPE_RECT_COORD (gtkaux_x11_rect_coord_get_type ())
-#define GTKAUX_X11_RECT_COORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_RECT_COORD, GtkAuxX11RectCoord))
-#define GTKAUX_X11_RECT_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_RECT_COORD, GtkAuxX11RectCoordClass))
-#define GTKAUX_X11_IS_RECT_COORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_RECT_COORD))
-#define GTKAUX_X11_IS_RECT_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_RECT_COORD))
-#define GTKAUX_X11_RECT_COORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_RECT_COORD, GtkAuxX11RectCoordClass))
-
-typedef struct _GtkAuxX11RectCoord GtkAuxX11RectCoord;
-typedef struct _GtkAuxX11RectCoordClass GtkAuxX11RectCoordClass;
-typedef struct _GtkAuxX11RectCoordPrivate GtkAuxX11RectCoordPrivate;
-
-#define GTKAUX_X11_TYPE_GEOMETRY_TARGET (gtkaux_x11_geometry_target_get_type ())
-#define GTKAUX_X11_GEOMETRY_TARGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_GEOMETRY_TARGET, GtkAuxX11GeometryTarget))
-#define GTKAUX_X11_GEOMETRY_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_GEOMETRY_TARGET, GtkAuxX11GeometryTargetClass))
-#define GTKAUX_X11_IS_GEOMETRY_TARGET(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_GEOMETRY_TARGET))
-#define GTKAUX_X11_IS_GEOMETRY_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_GEOMETRY_TARGET))
-#define GTKAUX_X11_GEOMETRY_TARGET_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_GEOMETRY_TARGET, GtkAuxX11GeometryTargetClass))
-
-typedef struct _GtkAuxX11GeometryTarget GtkAuxX11GeometryTarget;
-typedef struct _GtkAuxX11GeometryTargetClass GtkAuxX11GeometryTargetClass;
-
-#define GTKAUX_X11_TYPE_MARGIN_COORD (gtkaux_x11_margin_coord_get_type ())
-#define GTKAUX_X11_MARGIN_COORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_MARGIN_COORD, GtkAuxX11MarginCoord))
-#define GTKAUX_X11_MARGIN_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_MARGIN_COORD, GtkAuxX11MarginCoordClass))
-#define GTKAUX_X11_IS_MARGIN_COORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_MARGIN_COORD))
-#define GTKAUX_X11_IS_MARGIN_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_MARGIN_COORD))
-#define GTKAUX_X11_MARGIN_COORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_MARGIN_COORD, GtkAuxX11MarginCoordClass))
-
-typedef struct _GtkAuxX11MarginCoord GtkAuxX11MarginCoord;
-typedef struct _GtkAuxX11MarginCoordClass GtkAuxX11MarginCoordClass;
-typedef struct _GtkAuxX11MarginCoordPrivate GtkAuxX11MarginCoordPrivate;
-
-#define GTKAUX_X11_TYPE_SCREEN_MARGIN_TARGET (gtkaux_x11_screen_margin_target_get_type ())
-#define GTKAUX_X11_SCREEN_MARGIN_TARGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxX11ScreenMarginTarget))
-#define GTKAUX_X11_SCREEN_MARGIN_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxX11ScreenMarginTargetClass))
-#define GTKAUX_X11_IS_SCREEN_MARGIN_TARGET(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_SCREEN_MARGIN_TARGET))
-#define GTKAUX_X11_IS_SCREEN_MARGIN_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_SCREEN_MARGIN_TARGET))
-#define GTKAUX_X11_SCREEN_MARGIN_TARGET_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxX11ScreenMarginTargetClass))
-
-typedef struct _GtkAuxX11ScreenMarginTarget GtkAuxX11ScreenMarginTarget;
-typedef struct _GtkAuxX11ScreenMarginTargetClass GtkAuxX11ScreenMarginTargetClass;
-
-#define GTKAUX_X11_TYPE_XCOORD (gtkaux_x11_xcoord_get_type ())
-#define GTKAUX_X11_XCOORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_XCOORD, GtkAuxX11XCoord))
-#define GTKAUX_X11_XCOORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_XCOORD, GtkAuxX11XCoordClass))
-#define GTKAUX_X11_IS_XCOORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_XCOORD))
-#define GTKAUX_X11_IS_XCOORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_XCOORD))
-#define GTKAUX_X11_XCOORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_XCOORD, GtkAuxX11XCoordClass))
-
-typedef struct _GtkAuxX11XCoord GtkAuxX11XCoord;
-typedef struct _GtkAuxX11XCoordClass GtkAuxX11XCoordClass;
-typedef struct _GtkAuxX11XCoordPrivate GtkAuxX11XCoordPrivate;
-
-#define GTKAUX_X11_TYPE_YCOORD (gtkaux_x11_ycoord_get_type ())
-#define GTKAUX_X11_YCOORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_YCOORD, GtkAuxX11YCoord))
-#define GTKAUX_X11_YCOORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_YCOORD, GtkAuxX11YCoordClass))
-#define GTKAUX_X11_IS_YCOORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_YCOORD))
-#define GTKAUX_X11_IS_YCOORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_YCOORD))
-#define GTKAUX_X11_YCOORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_YCOORD, GtkAuxX11YCoordClass))
-
-typedef struct _GtkAuxX11YCoord GtkAuxX11YCoord;
-typedef struct _GtkAuxX11YCoordClass GtkAuxX11YCoordClass;
-typedef struct _GtkAuxX11YCoordPrivate GtkAuxX11YCoordPrivate;
-
-#define GTKAUX_X11_TYPE_WIDTH_COORD (gtkaux_x11_width_coord_get_type ())
-#define GTKAUX_X11_WIDTH_COORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_WIDTH_COORD, GtkAuxX11WidthCoord))
-#define GTKAUX_X11_WIDTH_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_WIDTH_COORD, GtkAuxX11WidthCoordClass))
-#define GTKAUX_X11_IS_WIDTH_COORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_WIDTH_COORD))
-#define GTKAUX_X11_IS_WIDTH_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_WIDTH_COORD))
-#define GTKAUX_X11_WIDTH_COORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_WIDTH_COORD, GtkAuxX11WidthCoordClass))
-
-typedef struct _GtkAuxX11WidthCoord GtkAuxX11WidthCoord;
-typedef struct _GtkAuxX11WidthCoordClass GtkAuxX11WidthCoordClass;
-typedef struct _GtkAuxX11WidthCoordPrivate GtkAuxX11WidthCoordPrivate;
-
-#define GTKAUX_X11_TYPE_HEIGHT_COORD (gtkaux_x11_height_coord_get_type ())
-#define GTKAUX_X11_HEIGHT_COORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_HEIGHT_COORD, GtkAuxX11HeightCoord))
-#define GTKAUX_X11_HEIGHT_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_HEIGHT_COORD, GtkAuxX11HeightCoordClass))
-#define GTKAUX_X11_IS_HEIGHT_COORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_HEIGHT_COORD))
-#define GTKAUX_X11_IS_HEIGHT_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_HEIGHT_COORD))
-#define GTKAUX_X11_HEIGHT_COORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_HEIGHT_COORD, GtkAuxX11HeightCoordClass))
-
-typedef struct _GtkAuxX11HeightCoord GtkAuxX11HeightCoord;
-typedef struct _GtkAuxX11HeightCoordClass GtkAuxX11HeightCoordClass;
-typedef struct _GtkAuxX11HeightCoordPrivate GtkAuxX11HeightCoordPrivate;
-
-#define GTKAUX_X11_TYPE_HORZ_MARGIN_COORD (gtkaux_x11_horz_margin_coord_get_type ())
-#define GTKAUX_X11_HORZ_MARGIN_COORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_HORZ_MARGIN_COORD, GtkAuxX11HorzMarginCoord))
-#define GTKAUX_X11_HORZ_MARGIN_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_HORZ_MARGIN_COORD, GtkAuxX11HorzMarginCoordClass))
-#define GTKAUX_X11_IS_HORZ_MARGIN_COORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_HORZ_MARGIN_COORD))
-#define GTKAUX_X11_IS_HORZ_MARGIN_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_HORZ_MARGIN_COORD))
-#define GTKAUX_X11_HORZ_MARGIN_COORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_HORZ_MARGIN_COORD, GtkAuxX11HorzMarginCoordClass))
-
-typedef struct _GtkAuxX11HorzMarginCoord GtkAuxX11HorzMarginCoord;
-typedef struct _GtkAuxX11HorzMarginCoordClass GtkAuxX11HorzMarginCoordClass;
-typedef struct _GtkAuxX11HorzMarginCoordPrivate GtkAuxX11HorzMarginCoordPrivate;
-
-#define GTKAUX_X11_TYPE_VERT_MARGIN_COORD (gtkaux_x11_vert_margin_coord_get_type ())
-#define GTKAUX_X11_VERT_MARGIN_COORD(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_X11_TYPE_VERT_MARGIN_COORD, GtkAuxX11VertMarginCoord))
-#define GTKAUX_X11_VERT_MARGIN_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_X11_TYPE_VERT_MARGIN_COORD, GtkAuxX11VertMarginCoordClass))
-#define GTKAUX_X11_IS_VERT_MARGIN_COORD(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_X11_TYPE_VERT_MARGIN_COORD))
-#define GTKAUX_X11_IS_VERT_MARGIN_COORD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_X11_TYPE_VERT_MARGIN_COORD))
-#define GTKAUX_X11_VERT_MARGIN_COORD_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_X11_TYPE_VERT_MARGIN_COORD, GtkAuxX11VertMarginCoordClass))
-
-typedef struct _GtkAuxX11VertMarginCoord GtkAuxX11VertMarginCoord;
-typedef struct _GtkAuxX11VertMarginCoordClass GtkAuxX11VertMarginCoordClass;
-typedef struct _GtkAuxX11VertMarginCoordPrivate GtkAuxX11VertMarginCoordPrivate;
-typedef struct _GtkAuxX11GeometryTargetPrivate GtkAuxX11GeometryTargetPrivate;
-typedef struct _GtkAuxX11ScreenMarginTargetPrivate GtkAuxX11ScreenMarginTargetPrivate;
-
-#define GTKAUX_GTK_X11_TYPE_GEOMETRY_TARGET (gtkaux_gtk_x11_geometry_target_get_type ())
-#define GTKAUX_GTK_X11_GEOMETRY_TARGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_GTK_X11_TYPE_GEOMETRY_TARGET, GtkAuxGtkX11GeometryTarget))
-#define GTKAUX_GTK_X11_GEOMETRY_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_GTK_X11_TYPE_GEOMETRY_TARGET, GtkAuxGtkX11GeometryTargetClass))
-#define GTKAUX_GTK_X11_IS_GEOMETRY_TARGET(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_GTK_X11_TYPE_GEOMETRY_TARGET))
-#define GTKAUX_GTK_X11_IS_GEOMETRY_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_GTK_X11_TYPE_GEOMETRY_TARGET))
-#define GTKAUX_GTK_X11_GEOMETRY_TARGET_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_GTK_X11_TYPE_GEOMETRY_TARGET, GtkAuxGtkX11GeometryTargetClass))
-
-typedef struct _GtkAuxGtkX11GeometryTarget GtkAuxGtkX11GeometryTarget;
-typedef struct _GtkAuxGtkX11GeometryTargetClass GtkAuxGtkX11GeometryTargetClass;
-typedef struct _GtkAuxGtkX11GeometryTargetPrivate GtkAuxGtkX11GeometryTargetPrivate;
-
-#define GTKAUX_GTK_X11_TYPE_SCREEN_MARGIN_TARGET (gtkaux_gtk_x11_screen_margin_target_get_type ())
-#define GTKAUX_GTK_X11_SCREEN_MARGIN_TARGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_GTK_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxGtkX11ScreenMarginTarget))
-#define GTKAUX_GTK_X11_SCREEN_MARGIN_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_GTK_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxGtkX11ScreenMarginTargetClass))
-#define GTKAUX_GTK_X11_IS_SCREEN_MARGIN_TARGET(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_GTK_X11_TYPE_SCREEN_MARGIN_TARGET))
-#define GTKAUX_GTK_X11_IS_SCREEN_MARGIN_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_GTK_X11_TYPE_SCREEN_MARGIN_TARGET))
-#define GTKAUX_GTK_X11_SCREEN_MARGIN_TARGET_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_GTK_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxGtkX11ScreenMarginTargetClass))
-
-typedef struct _GtkAuxGtkX11ScreenMarginTarget GtkAuxGtkX11ScreenMarginTarget;
-typedef struct _GtkAuxGtkX11ScreenMarginTargetClass GtkAuxGtkX11ScreenMarginTargetClass;
-typedef struct _GtkAuxGtkX11ScreenMarginTargetPrivate GtkAuxGtkX11ScreenMarginTargetPrivate;
-
-#define GTKAUX_GDK_X11_TYPE_GEOMETRY_TARGET (gtkaux_gdk_x11_geometry_target_get_type ())
-#define GTKAUX_GDK_X11_GEOMETRY_TARGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_GDK_X11_TYPE_GEOMETRY_TARGET, GtkAuxGdkX11GeometryTarget))
-#define GTKAUX_GDK_X11_GEOMETRY_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_GDK_X11_TYPE_GEOMETRY_TARGET, GtkAuxGdkX11GeometryTargetClass))
-#define GTKAUX_GDK_X11_IS_GEOMETRY_TARGET(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_GDK_X11_TYPE_GEOMETRY_TARGET))
-#define GTKAUX_GDK_X11_IS_GEOMETRY_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_GDK_X11_TYPE_GEOMETRY_TARGET))
-#define GTKAUX_GDK_X11_GEOMETRY_TARGET_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_GDK_X11_TYPE_GEOMETRY_TARGET, GtkAuxGdkX11GeometryTargetClass))
-
-typedef struct _GtkAuxGdkX11GeometryTarget GtkAuxGdkX11GeometryTarget;
-typedef struct _GtkAuxGdkX11GeometryTargetClass GtkAuxGdkX11GeometryTargetClass;
-typedef struct _GtkAuxGdkX11GeometryTargetPrivate GtkAuxGdkX11GeometryTargetPrivate;
-
-#define GTKAUX_GDK_X11_TYPE_SCREEN_MARGIN_TARGET (gtkaux_gdk_x11_screen_margin_target_get_type ())
-#define GTKAUX_GDK_X11_SCREEN_MARGIN_TARGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTKAUX_GDK_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxGdkX11ScreenMarginTarget))
-#define GTKAUX_GDK_X11_SCREEN_MARGIN_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), GTKAUX_GDK_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxGdkX11ScreenMarginTargetClass))
-#define GTKAUX_GDK_X11_IS_SCREEN_MARGIN_TARGET(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTKAUX_GDK_X11_TYPE_SCREEN_MARGIN_TARGET))
-#define GTKAUX_GDK_X11_IS_SCREEN_MARGIN_TARGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTKAUX_GDK_X11_TYPE_SCREEN_MARGIN_TARGET))
-#define GTKAUX_GDK_X11_SCREEN_MARGIN_TARGET_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTKAUX_GDK_X11_TYPE_SCREEN_MARGIN_TARGET, GtkAuxGdkX11ScreenMarginTargetClass))
-
-typedef struct _GtkAuxGdkX11ScreenMarginTarget GtkAuxGdkX11ScreenMarginTarget;
-typedef struct _GtkAuxGdkX11ScreenMarginTargetClass GtkAuxGdkX11ScreenMarginTargetClass;
-typedef struct _GtkAuxGdkX11ScreenMarginTargetPrivate GtkAuxGdkX11ScreenMarginTargetPrivate;
-
-struct _GtkAuxX11Target {
-	GObject parent_instance;
-	GtkAuxX11TargetPrivate * priv;
-	GObject* window;
-};
-
-struct _GtkAuxX11TargetClass {
-	GObjectClass parent_class;
-};
-
-struct _GtkAuxX11Coord {
-	GObject parent_instance;
-	GtkAuxX11CoordPrivate * priv;
-	gdouble _content;
-	gboolean* is_percent;
-};
-
-struct _GtkAuxX11CoordClass {
-	GObjectClass parent_class;
-	gdouble (*to_percent) (GtkAuxX11Coord* self);
-	gint (*to_int) (GtkAuxX11Coord* self);
-};
-
-struct _GtkAuxX11RectCoord {
-	GtkAuxX11Coord parent_instance;
-	GtkAuxX11RectCoordPrivate * priv;
-	GtkAuxX11GeometryTarget* mother;
-};
-
-struct _GtkAuxX11RectCoordClass {
-	GtkAuxX11CoordClass parent_class;
-};
-
-struct _GtkAuxX11MarginCoord {
-	GtkAuxX11Coord parent_instance;
-	GtkAuxX11MarginCoordPrivate * priv;
-	GtkAuxX11ScreenMarginTarget* mother;
-};
-
-struct _GtkAuxX11MarginCoordClass {
-	GtkAuxX11CoordClass parent_class;
-};
-
-struct _GtkAuxX11XCoord {
-	GtkAuxX11RectCoord parent_instance;
-	GtkAuxX11XCoordPrivate * priv;
-};
-
-struct _GtkAuxX11XCoordClass {
-	GtkAuxX11RectCoordClass parent_class;
-};
-
-struct _GtkAuxX11YCoord {
-	GtkAuxX11RectCoord parent_instance;
-	GtkAuxX11YCoordPrivate * priv;
-};
-
-struct _GtkAuxX11YCoordClass {
-	GtkAuxX11RectCoordClass parent_class;
-};
-
-struct _GtkAuxX11WidthCoord {
-	GtkAuxX11RectCoord parent_instance;
-	GtkAuxX11WidthCoordPrivate * priv;
-};
-
-struct _GtkAuxX11WidthCoordClass {
-	GtkAuxX11RectCoordClass parent_class;
-};
-
-struct _GtkAuxX11HeightCoord {
-	GtkAuxX11RectCoord parent_instance;
-	GtkAuxX11HeightCoordPrivate * priv;
-};
-
-struct _GtkAuxX11HeightCoordClass {
-	GtkAuxX11RectCoordClass parent_class;
-};
-
-struct _GtkAuxX11HorzMarginCoord {
-	GtkAuxX11MarginCoord parent_instance;
-	GtkAuxX11HorzMarginCoordPrivate * priv;
-};
-
-struct _GtkAuxX11HorzMarginCoordClass {
-	GtkAuxX11MarginCoordClass parent_class;
-};
-
-struct _GtkAuxX11VertMarginCoord {
-	GtkAuxX11MarginCoord parent_instance;
-	GtkAuxX11VertMarginCoordPrivate * priv;
-};
-
-struct _GtkAuxX11VertMarginCoordClass {
-	GtkAuxX11MarginCoordClass parent_class;
-};
-
-struct _GtkAuxX11GeometryTarget {
-	GtkAuxX11Target parent_instance;
-	GtkAuxX11GeometryTargetPrivate * priv;
-	GtkAuxX11XCoord* x;
-	GtkAuxX11YCoord* y;
-	GtkAuxX11WidthCoord* width;
-	GtkAuxX11HeightCoord* height;
-	gint align_horz;
-	gint align_vert;
-	gboolean use_display_strut;
-	GtkAuxX11ScreenMarginTarget* margin;
-};
-
-struct _GtkAuxX11GeometryTargetClass {
-	GtkAuxX11TargetClass parent_class;
-};
-
-struct _GtkAuxX11ScreenMarginTarget {
-	GtkAuxX11Target parent_instance;
-	GtkAuxX11ScreenMarginTargetPrivate * priv;
-	GtkAuxX11HorzMarginCoord* left;
-	GtkAuxX11HorzMarginCoord* right;
-	GtkAuxX11VertMarginCoord* top;
-	GtkAuxX11VertMarginCoord* bottom;
-};
-
-struct _GtkAuxX11ScreenMarginTargetClass {
-	GtkAuxX11TargetClass parent_class;
-};
-
-struct _GtkAuxGtkX11GeometryTarget {
-	GtkAuxX11GeometryTarget parent_instance;
-	GtkAuxGtkX11GeometryTargetPrivate * priv;
-};
-
-struct _GtkAuxGtkX11GeometryTargetClass {
-	GtkAuxX11GeometryTargetClass parent_class;
-};
-
-struct _GtkAuxGtkX11ScreenMarginTarget {
-	GtkAuxX11ScreenMarginTarget parent_instance;
-	GtkAuxGtkX11ScreenMarginTargetPrivate * priv;
-};
-
-struct _GtkAuxGtkX11ScreenMarginTargetClass {
-	GtkAuxX11ScreenMarginTargetClass parent_class;
-};
-
-struct _GtkAuxGdkX11GeometryTarget {
-	GtkAuxX11GeometryTarget parent_instance;
-	GtkAuxGdkX11GeometryTargetPrivate * priv;
-};
-
-struct _GtkAuxGdkX11GeometryTargetClass {
-	GtkAuxX11GeometryTargetClass parent_class;
-};
-
-struct _GtkAuxGdkX11ScreenMarginTarget {
-	GtkAuxX11ScreenMarginTarget parent_instance;
-	GtkAuxGdkX11ScreenMarginTargetPrivate * priv;
-};
-
-struct _GtkAuxGdkX11ScreenMarginTargetClass {
-	GtkAuxX11ScreenMarginTargetClass parent_class;
-};
 
 VALA_EXTERN GdkDisplay* gtkaux_get_display (GObject* win_item);
 VALA_EXTERN Display* gtkaux_x11_get_xdisplay (GObject* window);
@@ -571,105 +230,40 @@ VALA_EXTERN void gtkaux_x11_set_screen_margin (GObject* window,
                                    gint right,
                                    gint bottom,
                                    gint left);
-VALA_EXTERN gint gtkaux_x11_get_width_int_from_percent (GObject* window,
-                                            gdouble width_percent,
-                                            gint margin_left,
-                                            gint margin_right);
-VALA_EXTERN gint gtkaux_x11_get_x_int_from_percent (GObject* window,
-                                        gdouble x_percent,
-                                        gint margin_left,
-                                        gint margin_right);
-VALA_EXTERN gint gtkaux_x11_get_height_int_from_percent (GObject* window,
-                                             gdouble height_percent,
-                                             gint margin_top,
-                                             gint margin_bottom);
-VALA_EXTERN gint gtkaux_x11_get_y_int_from_percent (GObject* window,
-                                        gdouble y_percent,
-                                        gint margin_top,
-                                        gint margin_bottom);
-VALA_EXTERN gint gtkaux_x11_get_horz_margin_int_from_percent (GObject* window,
-                                                  gdouble margin_percent);
-VALA_EXTERN gint gtkaux_x11_get_vert_margin_int_from_percent (GObject* window,
-                                                  gdouble margin_percent);
-VALA_EXTERN gdouble gtkaux_x11_get_width_percent_from_int (GObject* window,
-                                               gint width,
-                                               gint margin_left,
-                                               gint margin_right);
-VALA_EXTERN gdouble gtkaux_x11_get_x_percent_from_int (GObject* window,
-                                           gint x,
-                                           gint margin_left,
-                                           gint margin_right);
-VALA_EXTERN gdouble gtkaux_x11_get_height_percent_from_int (GObject* window,
-                                                gint height,
-                                                gint margin_top,
-                                                gint margin_bottom);
-VALA_EXTERN gdouble gtkaux_x11_get_y_percent_from_int (GObject* window,
-                                           gint y,
-                                           gint margin_top,
-                                           gint margin_bottom);
-VALA_EXTERN gdouble gtkaux_x11_get_horz_margin_percent_from_int (GObject* window,
-                                                     gint margin);
-VALA_EXTERN gdouble gtkaux_x11_get_vert_margin_percent_from_int (GObject* window,
-                                                     gint margin);
-VALA_EXTERN GType gtkaux_x11_target_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11Target, g_object_unref)
-VALA_EXTERN GType gtkaux_x11_coord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11Coord, g_object_unref)
-VALA_EXTERN gdouble gtkaux_x11_coord_to_percent (GtkAuxX11Coord* self);
-VALA_EXTERN gint gtkaux_x11_coord_to_int (GtkAuxX11Coord* self);
-VALA_EXTERN gint gtkaux_x11_coord_get_as_int (GtkAuxX11Coord* self);
-VALA_EXTERN void gtkaux_x11_coord_set_as_int (GtkAuxX11Coord* self,
-                                  gint value);
-VALA_EXTERN gdouble gtkaux_x11_coord_get_as_percent (GtkAuxX11Coord* self);
-VALA_EXTERN void gtkaux_x11_coord_set_as_percent (GtkAuxX11Coord* self,
-                                      gdouble value);
-VALA_EXTERN GType gtkaux_x11_rect_coord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11RectCoord, g_object_unref)
-VALA_EXTERN GType gtkaux_x11_geometry_target_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11GeometryTarget, g_object_unref)
-VALA_EXTERN GType gtkaux_x11_margin_coord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11MarginCoord, g_object_unref)
-VALA_EXTERN GType gtkaux_x11_screen_margin_target_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11ScreenMarginTarget, g_object_unref)
-VALA_EXTERN GType gtkaux_x11_xcoord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11XCoord, g_object_unref)
-VALA_EXTERN GtkAuxX11XCoord* gtkaux_x11_xcoord_new (GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GtkAuxX11XCoord* gtkaux_x11_xcoord_construct (GType object_type,
-                                              GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GType gtkaux_x11_ycoord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11YCoord, g_object_unref)
-VALA_EXTERN GtkAuxX11YCoord* gtkaux_x11_ycoord_new (GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GtkAuxX11YCoord* gtkaux_x11_ycoord_construct (GType object_type,
-                                              GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GType gtkaux_x11_width_coord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11WidthCoord, g_object_unref)
-VALA_EXTERN GtkAuxX11WidthCoord* gtkaux_x11_width_coord_new (GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GtkAuxX11WidthCoord* gtkaux_x11_width_coord_construct (GType object_type,
-                                                       GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GType gtkaux_x11_height_coord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11HeightCoord, g_object_unref)
-VALA_EXTERN GtkAuxX11HeightCoord* gtkaux_x11_height_coord_new (GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GtkAuxX11HeightCoord* gtkaux_x11_height_coord_construct (GType object_type,
-                                                         GtkAuxX11GeometryTarget* mother);
-VALA_EXTERN GType gtkaux_x11_horz_margin_coord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11HorzMarginCoord, g_object_unref)
-VALA_EXTERN GtkAuxX11HorzMarginCoord* gtkaux_x11_horz_margin_coord_new (GtkAuxX11ScreenMarginTarget* mother);
-VALA_EXTERN GtkAuxX11HorzMarginCoord* gtkaux_x11_horz_margin_coord_construct (GType object_type,
-                                                                  GtkAuxX11ScreenMarginTarget* mother);
-VALA_EXTERN GType gtkaux_x11_vert_margin_coord_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxX11VertMarginCoord, g_object_unref)
-VALA_EXTERN GtkAuxX11VertMarginCoord* gtkaux_x11_vert_margin_coord_new (GtkAuxX11ScreenMarginTarget* mother);
-VALA_EXTERN GtkAuxX11VertMarginCoord* gtkaux_x11_vert_margin_coord_construct (GType object_type,
-                                                                  GtkAuxX11ScreenMarginTarget* mother);
-VALA_EXTERN GtkAuxX11GeometryTarget* gtkaux_x11_geometry_target_new (GObject* window);
-VALA_EXTERN GtkAuxX11GeometryTarget* gtkaux_x11_geometry_target_construct (GType object_type,
-                                                               GObject* window);
-VALA_EXTERN void gtkaux_x11_geometry_target_apply (GtkAuxX11GeometryTarget* self);
-VALA_EXTERN void gtkaux_x11_geometry_target_queue_apply (GtkAuxX11GeometryTarget* self);
-VALA_EXTERN GtkAuxX11ScreenMarginTarget* gtkaux_x11_screen_margin_target_new (GObject* window);
-VALA_EXTERN GtkAuxX11ScreenMarginTarget* gtkaux_x11_screen_margin_target_construct (GType object_type,
-                                                                        GObject* window);
-VALA_EXTERN void gtkaux_x11_screen_margin_target_apply (GtkAuxX11ScreenMarginTarget* self);
+VALA_EXTERN void gtkaux_x11_set_screen_margin_advanced (GObject* window,
+                                            GValue* margin_top,
+                                            GValue* margin_right,
+                                            GValue* margin_bottom,
+                                            GValue* margin_left);
+VALA_EXTERN void gtkaux_x11_set_geometry_advanced (GObject* window,
+                                       GValue* x,
+                                       GValue* y,
+                                       GValue* width,
+                                       GValue* height,
+                                       GValue* margin_top,
+                                       GValue* margin_right,
+                                       GValue* margin_bottom,
+                                       GValue* margin_left,
+                                       gint align_horz,
+                                       gint align_vert);
+VALA_EXTERN void gtkaux_x11_set_size_advanced (GObject* window,
+                                   GValue* width,
+                                   GValue* height,
+                                   GValue* margin_top,
+                                   GValue* margin_right,
+                                   GValue* margin_bottom,
+                                   GValue* margin_left,
+                                   gint align_horz,
+                                   gint align_vert);
+VALA_EXTERN void gtkaux_x11_set_position_advanced (GObject* window,
+                                       GValue* x,
+                                       GValue* y,
+                                       GValue* margin_top,
+                                       GValue* margin_right,
+                                       GValue* margin_bottom,
+                                       GValue* margin_left,
+                                       gint align_horz,
+                                       gint align_vert);
 VALA_EXTERN gchar* gdklegacy_window_type_hint_to_string (GdkWindowTypeHint window_type);
 VALA_EXTERN GdkWindowTypeHint gdklegacy_window_type_hint_parse (const gchar* window_type_str);
 VALA_EXTERN void gdklegacy_minimize (GdkWindow* _self_);
@@ -698,38 +292,60 @@ VALA_EXTERN gboolean gtkaux_gtk_x11_get_window_state_hint (GtkWindow* window,
 VALA_EXTERN void gtkaux_gtk_x11_set_window_state_hint (GtkWindow* window,
                                            gint window_state_hint,
                                            gboolean enable);
-VALA_EXTERN GType gtkaux_gtk_x11_geometry_target_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxGtkX11GeometryTarget, g_object_unref)
-VALA_EXTERN GtkAuxGtkX11GeometryTarget* gtkaux_gtk_x11_geometry_target_new (GtkWindow* window);
-VALA_EXTERN GtkAuxGtkX11GeometryTarget* gtkaux_gtk_x11_geometry_target_construct (GType object_type,
-                                                                      GtkWindow* window);
-VALA_EXTERN void gtkaux_gtk_x11_geometry_target_queue_apply (GtkAuxGtkX11GeometryTarget* self);
-VALA_EXTERN GType gtkaux_gtk_x11_screen_margin_target_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxGtkX11ScreenMarginTarget, g_object_unref)
-VALA_EXTERN GtkAuxGtkX11ScreenMarginTarget* gtkaux_gtk_x11_screen_margin_target_new (GtkWindow* window);
-VALA_EXTERN GtkAuxGtkX11ScreenMarginTarget* gtkaux_gtk_x11_screen_margin_target_construct (GType object_type,
-                                                                               GtkWindow* window);
-VALA_EXTERN void gtkaux_gtk_x11_screen_margin_target_queue_apply (GtkAuxGtkX11ScreenMarginTarget* self);
+VALA_EXTERN void gtkaux_gtk_x11_set_screen_margin_advanced (GtkWindow* window,
+                                                GValue* margin_top,
+                                                GValue* margin_right,
+                                                GValue* margin_bottom,
+                                                GValue* margin_left);
 VALA_EXTERN void gtkaux_gtk_x11_set_screen_margin (GtkWindow* window,
-                                       gint top,
-                                       gint right,
-                                       gint bottom,
-                                       gint left);
-VALA_EXTERN void gtkaux_gtk_x11_set_position (GtkWindow* window,
-                                  gint x,
-                                  gint y,
-                                  gint align_horz,
-                                  gint align_vert);
-VALA_EXTERN void gtkaux_gtk_x11_set_size (GtkWindow* window,
-                              gint width,
-                              gint height,
-                              gint align_horz,
-                              gint align_vert);
+                                       gint margin_top,
+                                       gint margin_right,
+                                       gint margin_bottom,
+                                       gint margin_left);
+VALA_EXTERN void gtkaux_gtk_x11_set_geometry_advanced (GtkWindow* window,
+                                           GValue* x,
+                                           GValue* y,
+                                           GValue* width,
+                                           GValue* height,
+                                           GValue* margin_top,
+                                           GValue* margin_right,
+                                           GValue* margin_bottom,
+                                           GValue* margin_left,
+                                           gint align_horz,
+                                           gint align_vert);
 VALA_EXTERN void gtkaux_gtk_x11_set_geometry (GtkWindow* window,
                                   gint x,
                                   gint y,
                                   gint width,
                                   gint height,
+                                  gint align_horz,
+                                  gint align_vert);
+VALA_EXTERN void gtkaux_gtk_x11_set_size_advanced (GtkWindow* window,
+                                       GValue* width,
+                                       GValue* height,
+                                       GValue* margin_top,
+                                       GValue* margin_right,
+                                       GValue* margin_bottom,
+                                       GValue* margin_left,
+                                       gint align_horz,
+                                       gint align_vert);
+VALA_EXTERN void gtkaux_gtk_x11_set_position_advanced (GtkWindow* window,
+                                           GValue* x,
+                                           GValue* y,
+                                           GValue* margin_top,
+                                           GValue* margin_right,
+                                           GValue* margin_bottom,
+                                           GValue* margin_left,
+                                           gint align_horz,
+                                           gint align_vert);
+VALA_EXTERN void gtkaux_gtk_x11_set_size (GtkWindow* window,
+                              gint width,
+                              gint height,
+                              gint align_horz,
+                              gint align_vert);
+VALA_EXTERN void gtkaux_gtk_x11_set_position (GtkWindow* window,
+                                  gint x,
+                                  gint y,
                                   gint align_horz,
                                   gint align_vert);
 VALA_EXTERN void gtkaux_gtk_x11_move (GtkWindow* window,
@@ -872,56 +488,40 @@ VALA_EXTERN void gtkaux_gdk_x11_move_resize (GdkWindow* window,
                                  gint y,
                                  gint width,
                                  gint height);
-VALA_EXTERN GType gtkaux_gdk_x11_geometry_target_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxGdkX11GeometryTarget, g_object_unref)
-VALA_EXTERN GtkAuxGdkX11GeometryTarget* gtkaux_gdk_x11_geometry_target_new (GdkWindow* window);
-VALA_EXTERN GtkAuxGdkX11GeometryTarget* gtkaux_gdk_x11_geometry_target_construct (GType object_type,
-                                                                      GdkWindow* window);
-VALA_EXTERN GType gtkaux_gdk_x11_screen_margin_target_get_type (void) G_GNUC_CONST ;
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GtkAuxGdkX11ScreenMarginTarget, g_object_unref)
-VALA_EXTERN GtkAuxGdkX11ScreenMarginTarget* gtkaux_gdk_x11_screen_margin_target_new (GdkWindow* window);
-VALA_EXTERN GtkAuxGdkX11ScreenMarginTarget* gtkaux_gdk_x11_screen_margin_target_construct (GType object_type,
-                                                                               GdkWindow* window);
-VALA_EXTERN gint gtkaux_gdk_x11_get_width_int_from_percent (GdkWindow* window,
-                                                gdouble width_percent,
-                                                gint margin_left,
-                                                gint margin_right);
-VALA_EXTERN gint gtkaux_gdk_x11_get_x_int_from_percent (GdkWindow* window,
-                                            gdouble x_percent,
-                                            gint margin_left,
-                                            gint margin_right);
-VALA_EXTERN gint gtkaux_gdk_x11_get_height_int_from_percent (GdkWindow* window,
-                                                 gdouble height_percent,
-                                                 gint margin_top,
-                                                 gint margin_bottom);
-VALA_EXTERN gint gtkaux_gdk_x11_get_y_int_from_percent (GdkWindow* window,
-                                            gdouble y_percent,
-                                            gint margin_top,
-                                            gint margin_bottom);
-VALA_EXTERN gint gtkaux_gdk_x11_get_horz_margin_int_from_percent (GdkWindow* window,
-                                                      gdouble margin_percent);
-VALA_EXTERN gint gtkaux_gdk_x11_get_vert_margin_int_from_percent (GdkWindow* window,
-                                                      gdouble margin_percent);
-VALA_EXTERN gdouble gtkaux_gdk_x11_get_width_percent_from_int (GdkWindow* window,
-                                                   gint width,
-                                                   gint margin_left,
-                                                   gint margin_right);
-VALA_EXTERN gdouble gtkaux_gdk_x11_get_x_percent_from_int (GdkWindow* window,
-                                               gint x,
-                                               gint margin_left,
-                                               gint margin_right);
-VALA_EXTERN gdouble gtkaux_gdk_x11_get_height_percent_from_int (GdkWindow* window,
-                                                    gint height,
-                                                    gint margin_top,
-                                                    gint margin_bottom);
-VALA_EXTERN gdouble gtkaux_gdk_x11_get_y_percent_from_int (GdkWindow* window,
-                                               gint y,
-                                               gint margin_top,
-                                               gint margin_bottom);
-VALA_EXTERN gdouble gtkaux_gdk_x11_get_horz_margin_percent_from_int (GdkWindow* window,
-                                                         gint margin);
-VALA_EXTERN gdouble gtkaux_gdk_x11_get_vert_margin_percent_from_int (GdkWindow* window,
-                                                         gint margin);
+VALA_EXTERN void gtkaux_gdk_x11_set_position_advanced (GdkWindow* window,
+                                           GValue* x,
+                                           GValue* y,
+                                           GValue* margin_top,
+                                           GValue* margin_right,
+                                           GValue* margin_bottom,
+                                           GValue* margin_left,
+                                           gint align_horz,
+                                           gint align_vert);
+VALA_EXTERN void gtkaux_gdk_x11_set_size_advanced (GdkWindow* window,
+                                       GValue* width,
+                                       GValue* height,
+                                       GValue* margin_top,
+                                       GValue* margin_right,
+                                       GValue* margin_bottom,
+                                       GValue* margin_left,
+                                       gint align_horz,
+                                       gint align_vert);
+VALA_EXTERN void gtkaux_gdk_x11_set_geometry_advanced (GdkWindow* window,
+                                           GValue* x,
+                                           GValue* y,
+                                           GValue* width,
+                                           GValue* height,
+                                           GValue* margin_top,
+                                           GValue* margin_right,
+                                           GValue* margin_bottom,
+                                           GValue* margin_left,
+                                           gint align_horz,
+                                           gint align_vert);
+VALA_EXTERN void gtkaux_gdk_x11_set_screen_margin_advanced (GdkWindow* window,
+                                                GValue* margin_top,
+                                                GValue* margin_right,
+                                                GValue* margin_bottom,
+                                                GValue* margin_left);
 
 G_END_DECLS
 

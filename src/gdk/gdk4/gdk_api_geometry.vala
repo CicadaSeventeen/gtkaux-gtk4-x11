@@ -32,6 +32,38 @@ namespace GdkX11Lib {
 		public void move_resize(Gdk.Surface surface,int x,int y,int width,int height){
 			X11Lib.move_resize(surface,x,y,width,height);
 		}
+
+		public void set_position_advanced(Gdk.Surface surface,
+			GLib.Value? x,GLib.Value? y,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left,
+			int align_horz,int align_vert
+		){
+			X11Lib.set_position_advanced(surface,x,y,margin_top,margin_right,margin_bottom,margin_left,align_horz,align_vert);
+		}
+
+		public void set_size_advanced(Gdk.Surface surface,
+			GLib.Value? width,GLib.Value? height,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left,
+			int align_horz,int align_vert
+		){
+			X11Lib.set_size_advanced(surface,width,height,margin_top,margin_right,margin_bottom,margin_left,align_horz,align_vert);
+		}
+
+		public void set_geometry_advanced(Gdk.Surface surface,
+			GLib.Value? x,GLib.Value? y,GLib.Value? width,GLib.Value? height,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left,
+			int align_horz,int align_vert
+		){
+			X11Lib.set_geometry_advanced(surface,x,y,width,height,margin_top,margin_right,margin_bottom,margin_left,align_horz,align_vert);
+		}
+
+		public void set_screen_margin_advanced(Gdk.Surface surface,
+			GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left
+		){
+			X11Lib.set_screen_margin_advanced(surface,margin_top,margin_right,margin_bottom,margin_left);
+		}
+
+		/*
 		public class GeometryTarget: X11Lib.GeometryTarget{
 			public GeometryTarget(Gdk.Surface surface)
 			{
@@ -80,6 +112,6 @@ namespace GdkX11Lib {
 		}
 		public double get_vert_margin_percent_from_int(Gdk.Surface surface,int margin){
 			return X11Lib.get_horz_margin_percent_from_int(surface,margin);
-		}
+		}*/
 	}
 }

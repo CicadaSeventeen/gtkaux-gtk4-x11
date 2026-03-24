@@ -36,41 +36,130 @@ namespace GtkAux{
 				}
 			}
 
-			internal class WindowHelper_ScreenMargin: WindowHelper_GObject {
+			internal class WindowHelper_ScreenMargin: WindowHelper_Array<GLib.Value?> {
 				internal override void func_exec(){
 					var? data = this.content_ref;
-					if(data!=null && (data is GtkAux.X11Lib.ScreenMarginTarget)){
-						((GtkAux.X11Lib.ScreenMarginTarget)data).apply();
+					if(data!=null&&data.length >= 4){
+						GtkAux.X11Lib.set_screen_margin_advanced(this.window,data[0],data[1],data[2],data[3]);
 					}
+				}
+				internal void make_new(){
+					GLib.Value?[] tmp = new GLib.Value?[4];
+					for(int index = 0;index < tmp.length;index++){
+						tmp[index] = null;
+					}
+					this.content = tmp;
+				}
+				internal void set_info(
+					GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left
+				){
+					if(!this.has_content()||this.content_ref.length < 4){
+						this.make_new();
+					}
+					this.content_ref[0] = margin_top;
+					this.content_ref[1] = margin_right;
+					this.content_ref[2] = margin_bottom;
+					this.content_ref[3] = margin_left;
 				}
 				internal WindowHelper_ScreenMargin(Gtk.Window window){
 					base(window,"ScreenMargin",SignalMode.AFTER_REALIZE);
 					if(!this.has_content()){
-						this.box = new GtkAux.X11Lib.ScreenMarginTarget(window);
+						this.make_new();
 					}
 				}
-				internal WindowHelper_ScreenMargin.with_data(Gtk.Window window,GtkAux.X11Lib.ScreenMarginTarget data){
+				internal WindowHelper_ScreenMargin.with_data(Gtk.Window window,GLib.Value?[] data){
 					base.with_data(window,"ScreenMargin",SignalMode.AFTER_REALIZE,data);
-					this.smart_exec();
 				}
 			}
 
-			internal class WindowHelper_Geometry: WindowHelper_GObject {
+			internal class WindowHelper_Geometry: WindowHelper_Array<GLib.Value?> {
 				internal override void func_exec(){
 					var? data = this.content_ref;
-					if(data!=null && (data is GtkAux.X11Lib.GeometryTarget)){
-						((GtkAux.X11Lib.GeometryTarget)data).apply();
+					if(data!=null&&data.length >= 10){
+						bool move = true;
+						bool resize = true;
+						if(data[0] == null && data[1] == null){move = false;}
+						if(data[2] == null && data[3] == null){resize = false;}
+						int align_horz,align_vert;
+						if(data[8].type() == GLib.Type.INT){
+							align_horz = data[8].get_int();
+						}else{
+							align_horz = 0;
+						}
+						if(data[9].type() == GLib.Type.INT){
+							align_vert = data[8].get_int();
+						}else{
+							align_vert = 0;
+						}
+						if(move == true){
+							if(resize == true){
+								GtkAux.X11Lib.set_geometry_advanced(this.window,data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],align_horz,align_vert);
+							}else{
+								GtkAux.X11Lib.set_position_advanced(this.window,data[0],data[1],data[4],data[5],data[6],data[7],align_horz,align_vert);
+							}
+						}else{
+							if(resize == true){
+								GtkAux.X11Lib.set_size_advanced(this.window,data[2],data[3],data[4],data[5],data[6],data[7],align_horz,align_vert);
+							}
+						}
 					}
+				}
+				internal void make_new(){
+					GLib.Value?[] tmp = new GLib.Value?[10];
+					for(int index = 0;index < tmp.length;index++){
+						tmp[index] = null;
+					}
+					this.content = tmp;
+				}
+				internal void get_size(out GLib.Value? width,out GLib.Value? height){
+					if(!this.has_content()||this.content_ref.length < 10){
+						width = null;
+						height = null;
+					}else{
+						width = this.content_ref[2];
+						height = this.content_ref[3];
+					}
+				}
+				internal void get_position(out GLib.Value? x,out GLib.Value? y){
+					if(!this.has_content()||this.content_ref.length < 10){
+						x = null;
+						y = null;
+					}else{
+						x = this.content_ref[0];
+						y = this.content_ref[1];
+					}
+				}
+				internal void set_info(
+					GLib.Value? x,GLib.Value? y,GLib.Value? width,GLib.Value? height,
+					GLib.Value? margin_top,GLib.Value? margin_right,GLib.Value? margin_bottom,GLib.Value? margin_left,
+					int align_horz,int align_vert
+				){
+					if(!this.has_content()||this.content_ref.length < 10){
+						this.make_new();
+					}
+					this.content_ref[0] = x;
+					this.content_ref[1] = y;
+					this.content_ref[2] = width;
+					this.content_ref[3] = height;
+					this.content_ref[4] = margin_top;
+					this.content_ref[5] = margin_right;
+					this.content_ref[6] = margin_bottom;
+					this.content_ref[7] = margin_left;
+					GLib.Value tmp_horz = Value(GLib.Type.INT);
+					GLib.Value tmp_vert = Value(GLib.Type.INT);
+					tmp_horz.set_int(align_horz);
+					tmp_vert.set_int(align_vert);
+					this.content_ref[8] = tmp_horz;
+					this.content_ref[9] = tmp_vert;
 				}
 				internal WindowHelper_Geometry(Gtk.Window window){
 					base(window,"Geometry",SignalMode.AFTER_MAP);
 					if(!this.has_content()){
-						this.box = new GtkAux.X11Lib.GeometryTarget(window);
+						this.make_new();
 					}
 				}
-				internal WindowHelper_Geometry.with_data(Gtk.Window window,GtkAux.X11Lib.GeometryTarget data){
+				internal WindowHelper_Geometry.with_data(Gtk.Window window,GLib.Value?[] data){
 					base.with_data(window,"Geometry",SignalMode.AFTER_MAP,data);
-					this.smart_exec();
 				}
 			}
 
